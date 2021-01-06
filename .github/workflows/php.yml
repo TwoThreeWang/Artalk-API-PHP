@@ -1,32 +1,28 @@
-name: PHP Composer
+name: composer
 
-on:
+on: 
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: 
+      - master # build master branch only
 
 jobs:
-  build:
-
+  download:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: master
+
+    - name: Install
+      run: |
+        npm install composer
+        composer install
         
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: master
-
-      - name: Install
-        run: |
-          npm install composer
-          composer install
-
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./
+        
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.TOKEN }}
+        publish_dir: ./
