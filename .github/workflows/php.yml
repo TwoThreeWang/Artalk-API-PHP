@@ -17,6 +17,7 @@ jobs:
 
     - name: Install
       run: |
+        npm init
         npm install composer
         composer install
         
