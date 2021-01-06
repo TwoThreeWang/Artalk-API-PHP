@@ -16,7 +16,8 @@ jobs:
         ref: master
 
     - name: Install
-      run: npm install composer
+      run: |
+        npm install composer
         composer install
         
         
