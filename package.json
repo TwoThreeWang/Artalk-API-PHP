@@ -1,4 +1,8 @@
 {
-    "name":"Artalk",
-    "version":"0.0.1"
+    "name": "Artalk",
+    "version": "0.0.1",
+    "dependencies": {
+        "composer": "^4.1.0",
+        "install": "^0.13.0"
+    }
 }
