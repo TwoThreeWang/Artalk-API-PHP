@@ -16,9 +16,7 @@ jobs:
         ref: master
 
     - name: Install
-      run: |
-        npm install composer
-        composer install --ignore-platform-reqs
+      run: composer install --ignore-platform-reqs
         
         
     - name: Deploy
